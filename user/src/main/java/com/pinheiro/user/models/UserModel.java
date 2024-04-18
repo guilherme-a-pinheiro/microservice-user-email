@@ -15,6 +15,8 @@ public class UserModel implements Serializable {
     private String name;
     private String email;
 
+    public UserModel(){}
+
     public UUID getId() {
         return id;
     }
