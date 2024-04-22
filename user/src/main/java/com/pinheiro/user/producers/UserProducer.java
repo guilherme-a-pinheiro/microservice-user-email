@@ -19,7 +19,7 @@ public class UserProducer {
     public void publishMessage(UserModel userModel){
         var emailDTO = new EmailDTO();
         emailDTO.setUserId(userModel.getId());
-        emailDTO.setEmailTO(userModel.getEmail());
+        emailDTO.setEmailTo(userModel.getEmail());
         emailDTO.setSubject("Cadastro realizado com sucesso!");
         emailDTO.setText(
                 userModel.getName()
