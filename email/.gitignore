@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Meu email ###
+microservice-user-email/email/src/main
+/resources/
