@@ -1,5 +1,6 @@
 package com.pinheiro.user.services;
 
+import com.pinheiro.user.exceptions.UserNotFoundException;
 import com.pinheiro.user.models.UserModel;
 import com.pinheiro.user.producers.UserProducer;
 import com.pinheiro.user.repositories.UserRepository;
@@ -33,8 +34,9 @@ public class UserService {
         return repository.findAll();
     }
 
-    public Optional<UserModel> findById(UUID id) {
-        return repository.findById(id);
+    public UserModel findById(UUID id) {
+        Optional<UserModel> user = repository.findById(id);
+        return user.orElseThrow(() -> new UserNotFoundException("User not found"));
     }
 
     public void deleteById(UUID id){

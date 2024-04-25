@@ -35,8 +35,8 @@ public class UserController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<UserModel>> findById(@PathVariable UUID id){
-        Optional<UserModel> user = service.findById(id);
+    public ResponseEntity<UserModel> findById(@PathVariable UUID id){
+        UserModel user = service.findById(id);
         return ResponseEntity.ok().body(user);
     }
 
