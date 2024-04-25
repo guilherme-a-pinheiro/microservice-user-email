@@ -7,6 +7,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -21,5 +23,9 @@ public class UserService {
         userModel = repository.save(userModel);
         producer.publishMessage(userModel);
         return userModel;
+    }
+
+    public List<UserModel> findAll(){
+        return repository.findAll();
     }
 }
