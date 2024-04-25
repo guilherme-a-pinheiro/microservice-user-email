@@ -39,4 +39,9 @@ public class UserController {
         Optional<UserModel> user = service.findById(id);
         return ResponseEntity.ok().body(user);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable UUID id){
+        service.deleteById(id);
+    }
 }
