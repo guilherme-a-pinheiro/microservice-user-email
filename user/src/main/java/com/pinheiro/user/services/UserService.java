@@ -6,8 +6,11 @@ import com.pinheiro.user.repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -27,5 +30,9 @@ public class UserService {
 
     public List<UserModel> findAll(){
         return repository.findAll();
+    }
+
+    public Optional<UserModel> findById(UUID id){
+        return repository.findById(id);
     }
 }

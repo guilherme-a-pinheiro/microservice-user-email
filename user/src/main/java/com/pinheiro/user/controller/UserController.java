@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -30,5 +32,11 @@ public class UserController {
         var userModel = new UserModel();
         BeanUtils.copyProperties(userRecordDto, userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(userModel));
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Optional<UserModel>> findById(@PathVariable UUID id){
+        Optional<UserModel> user = service.findById(id);
+        return ResponseEntity.ok().body(user);
     }
 }
