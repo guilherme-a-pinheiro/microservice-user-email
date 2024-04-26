@@ -1,6 +1,7 @@
 package com.pinheiro.email.services;
 
 import com.pinheiro.email.enums.StatusEmail;
+import com.pinheiro.email.exceptions.EmailNotFoundException;
 import com.pinheiro.email.models.EmailModel;
 import com.pinheiro.email.repositories.EmailRepository;
 import jakarta.transaction.Transactional;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class EmailService {
@@ -49,5 +52,10 @@ public class EmailService {
     public List<EmailModel> findAll(){
         List<EmailModel> list = repository.findAll();
         return list;
+    }
+
+    public EmailModel findById(UUID id){
+        Optional<EmailModel> email = repository.findById(id);
+        return email.orElseThrow(() -> new EmailNotFoundException("Email not found"));
     }
 }
