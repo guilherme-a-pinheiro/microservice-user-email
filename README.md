@@ -12,7 +12,7 @@ Este é um projeto de microserviços em Java para o cadastro de usuários e o en
 
 1. **Clonagem dos Repositórios:** Clone os repositórios dos microserviços em sua máquina local.
 
-2. **Configuração do Banco de Dados:** Certifique-se de configurar corretamente o PostgreSQL para cada microserviço. Utilize `ms-users` como o nome do banco de dados para o microserviço de usuários e `ms-emails` para o microserviço de e-mails. Atualize as configurações de conexão nos arquivos de propriedades dos microserviços.
+2. **Configuração do Banco de Dados:** Certifique-se de configurar corretamente o PostgreSQL para cada microserviço. Utilize `ms-user` como o nome do banco de dados para o microserviço de usuários e `ms-email` para o microserviço de e-mails. Atualize as configurações de conexão nos arquivos de propriedades dos microserviços.
 
 3. **Configuração do RabbitMQ:** Configure o RabbitMQ e atualize as configurações de conexão nos microserviços conforme necessário.
 
